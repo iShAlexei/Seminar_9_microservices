@@ -13,13 +13,11 @@ public class ApiGatewayServiceApplication {
         SpringApplication.run(ApiGatewayServiceApplication.class, args);
     }
 
-//    @Bean
-//    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
-//        return builder.routes()
-//                .route("Microservice1", r -> r.path("/serviceA/**")
-//                        .uri("http://localhost:8081/"))
-//                .route("Microservice2", r -> r.path("/serviceB/**")
-//                        .uri("http://localhost:8082/")).build();
-//    }
+    @Bean
+    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("notes_app", r -> r.path("/notes_app/**")
+                        .uri("http://localhost:8081/")).build();
+    }
 }
 

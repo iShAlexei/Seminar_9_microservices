@@ -5,6 +5,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/RegistryService/pom.xml" />
+        <option value="$PROJECT_DIR$/ApiGatewayService/pom.xml" />
+        <option value="$PROJECT_DIR$/NotesApp/pom.xml" />
+        <option value="$PROJECT_DIR$/AuthServer/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
