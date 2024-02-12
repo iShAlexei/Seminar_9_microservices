@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
+
 @EnableWebSecurity
 public class SecurityConfig {
 
@@ -16,8 +16,8 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/notes/**")
-                        .authenticated())
-                .oauth2ResourceServer(Customizer.withDefaults());
+                        .authenticated());
+        http.oauth2ResourceServer(Customizer.withDefaults());
         return http.build();
     }
 }

@@ -1,7 +1,8 @@
 package github.sh1rsh1n.authserver.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.Customizer;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -13,25 +14,26 @@ import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @EnableWebSecurity
+@RequiredArgsConstructor
+@Configuration(proxyBeanMethods = false)
 public class DefaultSecurityConfig {
+
+    private final CORSConfig config;
 
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(authorizeRequests ->
-                        authorizeRequests
-                                .anyRequest()
-                                .authenticated()
-                )
-                .formLogin(Customizer.withDefaults());
-        return http.build();
+                .authorizeHttpRequests(authorize ->
+                        authorize.anyRequest().authenticated()
+                );
+        return http.formLogin(withDefaults()).build();
     }
 
     @Bean
     public UserDetailsService users() {
-        UserDetails user = User.withDefaultPasswordEncoder()
+        UserDetails user = User.builder()
                 .username("admin")
-                .password("admin")
+                .password("{noop}admin")
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(user);

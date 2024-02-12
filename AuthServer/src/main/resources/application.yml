@@ -1,10 +1,15 @@
 
 server:
-  port: 9000
+  port: 8888
 
 spring:
   application:
     name: auth-server
+  security:
+    oauth2:
+      authorizationserver:
+        issuer-url: http://localhost:8888
+        introspection-endpoint: /oauth2/token-info
 
 eureka:
   instance:
