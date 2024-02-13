@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: notes-app
+    name: notes_app
 
   datasource:
     url: jdbc:h2:mem:testdb
@@ -18,12 +18,12 @@ spring:
     hibernate:
       ddl-auto: update
 
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:9000
-
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:9000
+#
 eureka:
   instance:
     prefer-ip-address: true

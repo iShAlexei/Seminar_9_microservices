@@ -16,8 +16,8 @@ public class ApiGatewayServiceApplication {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("notes_app", r -> r.path("/notes_app/**")
-                        .uri("http://localhost:8081/")).build();
+                .route("notes_app", r -> r.path("/api/notes/**")
+                        .uri("http://localhost:8080/")).build();
     }
 }
 

@@ -9,21 +9,21 @@ spring:
     gateway:
       routes:
         - id: notes_app
-          uri: http://localhost:8081/
+          uri: http://localhost:8080/
           predicates:
-            - Path=/notes_app/**
+            - Path=/api/notes/**
 
-  security:
-    oauth2:
-      client:
-        registration:
-          gateway:
-            provider: spring
-            client-id: gateway
-            client-secret: secret
-            authorization-grant-type: authorization_code
-            redirect-uri: "http://localhost:5000/code"
-            scope: openid,resource.read
-        provider:
-          spring:
-            issuer-uri: http://localhost:9000
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          gateway:
+#            provider: spring
+#            client-id: gateway
+#            client-secret: secret
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "http://localhost:5000/code"
+#            scope: openid,resource.read
+#        provider:
+#          spring:
+#            issuer-uri: http://localhost:9000
