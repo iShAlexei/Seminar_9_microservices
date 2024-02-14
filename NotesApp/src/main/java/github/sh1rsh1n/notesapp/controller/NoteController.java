@@ -13,7 +13,7 @@ import java.util.List;
  * Обработка REST запросов по адресу "http://localhost:8080/api/notes"
  * Для разрешения взаимодействия с внешним интерфейсом(REACT) используется аннотация @CrossOrigin
  */
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/notes")
 @RequiredArgsConstructor
